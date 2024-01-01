@@ -13,5 +13,25 @@ namespace UltraLogistics.Controllers
         {
             return View();
         }
+        public ActionResult AddZipCode()
+        {
+            return View();
+        }
+        public ActionResult ViewZipCode()
+        {
+            return View();
+        }
+        public ActionResult AddBranch()
+        {
+            return View();
+        }
+        public ActionResult ViewBranch()
+        {
+            return View();
+        }
+        public ActionResult EditBranch()
+        {
+            return View();
+        }
     }
 }
