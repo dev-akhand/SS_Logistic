@@ -1,8 +1,34 @@
-﻿
+﻿@using System.Data
 @{
     ViewBag.Title = "AddZipCode";
     Layout = "~/Views/Shared/Admin_Layout.cshtml";
 }
 
-<h2>AddZipCode</h2>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Active Zip Codes</h4>
+            <p class="card-description"> Active Your PinCodes<code>.</code> Where you are Available </p>
+            <form class="form-inline" method="post" action="/Admin/AddZipCode">
+                <label class="sr-only" for="inlineFormInputName2">ZipCodes:</label>
+                <select class="form-select mb-2 mr-sm-2" id="inlineFormInputName2" name="DdlPincode">
+                    @{
+                        DataTable dt = ViewBag.Record;
+                        foreach (DataRow item in dt.Rows)
+                        {
+                            <option value="@item[0]">@item[1]</option>
+                        }
+                    }
 
+                </select>
+                <div class="form-check mx-sm-2">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="Active" required> You want to active this Zip Code for Delivery.  <i class="input-helper"></i>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+            </form>
+            <h4 class="card-title">@ViewBag.Mess</h4>
+        </div>
+    </div>
+</div>

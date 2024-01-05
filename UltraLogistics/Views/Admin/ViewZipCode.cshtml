@@ -1,8 +1,40 @@
-﻿
+﻿@using System.Data;
 @{
     ViewBag.Title = "ViewZipCode";
     Layout = "~/Views/Shared/Admin_Layout.cshtml";
 }
-
-<h2>ViewZipCode</h2>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Active All ZipCodes..</h4>
+            <p class="card-description">
+                Added..
+            </p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Sr. No. </th>
+                        <th> Active ZipCodes </th>
+                        <th> Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        DataTable dt = ViewBag.Record;
+                        int count = 1;
+                        foreach (DataRow item in dt.Rows)
+                        {
+                            <tr>
+                                <td> @count</td>
+                                <td>@item[1]</td>
+                                <td><a href="/Admin/ViewZipCodes?PinId=@item[0]"><label class="badge badge-danger">DeActivate</label></a> </td>
+                            </tr>
+                            count++;
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
